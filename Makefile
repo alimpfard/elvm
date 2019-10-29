@@ -109,6 +109,7 @@ ELC_SRCS := \
 	i.c \
 	java.c \
 	js.c \
+	citron.c \
 	lua.c \
 	ll.c \
 	oct.c \
@@ -261,11 +262,18 @@ include target.mk
 endif
 
 TARGET := js
-RUNNER := nodejs
+RUNNER := node
+include target.mk
+
+TARGET := citron
+RUNNER := ctr
+ifndef FULL
+TEST_FILTER := out/8cc.c.eir.citron out/elc.c.eir.citron out/dump_ir.c.eir.citron out/eli.c.eir.citron
+endif
 include target.mk
 
 TARGET := asmjs
-RUNNER := nodejs
+RUNNER := node
 include target.mk
 
 TARGET := wasm

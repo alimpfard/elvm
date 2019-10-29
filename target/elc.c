@@ -25,6 +25,7 @@ void target_hs(Module* module);
 void target_i(Module* module);
 void target_java(Module* module);
 void target_js(Module* module);
+void target_ctr(Module* module);
 void target_lua(Module* module);
 void target_ll(Module* module);
 void target_oct(Module* module);
@@ -77,6 +78,7 @@ static target_func_t get_target_func(const char* ext) {
   if (!strcmp(ext, "i")) return target_i;
   if (!strcmp(ext, "java")) return target_java;
   if (!strcmp(ext, "js")) return target_js;
+  if (!strcmp(ext, "citron")) return target_ctr;
   if (!strcmp(ext, "lua")) return target_lua;
   if (!strcmp(ext, "ll")) return target_ll;
   if (!strcmp(ext, "oct")) return target_oct;
